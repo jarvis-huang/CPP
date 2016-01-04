@@ -1,0 +1,13 @@
+Loner
+ifwall 6
+ifenemy 6
+ifsame 9
+hop
+go 1
+left
+left
+go 1
+friend 6
+go 6
+
+The loner is mostly harmless.

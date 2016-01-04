@@ -1,0 +1,19 @@
+Rover
+ifenemy 11
+ifwall 6
+ifsame 6
+hop
+go 1
+ifrandom 9
+left
+go 1
+right
+go 1
+infect
+go 1
+
+The rover constantly moves forward.  When it
+runs into a wall or another rover, it randomly
+turns left or right.
+
+
