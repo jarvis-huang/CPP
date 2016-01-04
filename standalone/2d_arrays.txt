@@ -1,0 +1,11 @@
+You can cast a 1D array into a pointer.
+You can't cast a 2D array into pointer-to-pointers.
+The reason you can do this for 1D arrays and not 2D arrays has to do with the way in which the actual array elements are stored in memory. For one-dimensional arrays, all of the elements are stored consecutively, so the expression array[i] is equivalent to the expression *(array + i). As you can see, the array size is not needed to perform an array index operation. However, for two-dimensional arrays, the elements are stored in "row major" order, meaning that all of the elements in the zeroth row are stored first, followed by the elements in the first row, followed by the elements in the second row, etc. Therefore, the expression array[i][j] is equivalent to *(array + (i * ROW_SIZE) + j), where ROW_SIZE is the number of elements in each row. Therefore, the array's row size is needed to perform an array index operation, and casting the array variable to a pointer loses that information.
+
+In order to do that, you'll need to create a new array that contains those pointers.
+		float* lapD[3];
+		lapD[0] = new float[3]{Dxx, Dxy, Dxs};
+		lapD[1] = new float[3]{Dxy, Dyy, Dys};
+		lapD[2] = new float[3]{Dxs, Dys, Dss};
+		float** temp = (float**)lapD;
+		temp[i][j] // OK
