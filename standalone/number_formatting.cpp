@@ -11,7 +11,7 @@ using namespace std;
 	int old_precision = cout.precision();
     cout << fixed;
     cout.precision(2);
-    // work
+    // some work
 	cout.flags(old_settings);
 	cout.precision(old_precision);    
 
@@ -20,7 +20,7 @@ using namespace std;
 	int old_precision = cout.precision();
     cout << scientific;
     cout.precision(2);
-    // work
+    // some work
 	cout.flags(old_settings);
 	cout.precision(old_precision);    
     
