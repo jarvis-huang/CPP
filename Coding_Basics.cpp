@@ -1,4 +1,51 @@
 ==========================================
+==== Class (w/ templates)
+==========================================
+template < typename T >
+class Point
+{
+	T x;
+	T y;
+public:
+	Point(T a, T b): x(a), y(b) {} // constructor
+	~Point() // destructor
+	T getx() const {return x;}
+	T gety() const {return y;} // definition, no need for ";"
+	void setx(T a); // declaration only, need ";"
+};
+
+template < typename T >
+void Point::setx(T a)
+{
+	x = a;
+} // definition, no need for ";"
+
+==========================================
+==== 2D array/vector
+==========================================
+// To allocate a 2d array[sizeY][sizeX]:
+int **ary = new int*[sizeY];
+for(int i = 0; i < sizeY; ++i) {
+    ary[i] = new int[sizeX];
+}
+	
+// Declare 2D vector
+std::vector< std::vector< double > > twoDMatrix( 3, std::vector< double >( 4 ) );
+
+// Declare and initialize at the same time
+std::vector<std::vector<int>> fog { { 1, 1, 1 },
+                                    { 2, 2, 2 } };
+
+// Four directions
+int x; // cur x
+int y; // cur y
+vector<vector<int>> dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+    for (auto &dir : dirs) {
+    int xx = x + dir[0], yy = y + dir[1];
+    if (xx < 0 || xx >= rows || yy < 0 || yy >= cols) continue;
+    // do something with (xx,yy)
+}
+==========================================
 ==== Trees
 ==========================================
 BST: keep min/max, validate, swap two
@@ -143,12 +190,6 @@ unordered_map, unordered_set can't have pair<> as elements.
 ---
 string.find(string)==string::npos
 ---
-To allocate a 2d array[sizeY][sizeX]:
-int **ary = new int*[sizeY];
-for(int i = 0; i < sizeY; ++i) {
-    ary[i] = new int[sizeX];
-}
----
 #include <algorithm>
 sort(vec.begin(),vec.end())
 
@@ -192,16 +233,6 @@ switch(grade)
       break;
    default :
       cout << "Invalid grade" << endl;
-}
----
-Four directions:
-int x; // cur x
-int y; // cur y
-vector<vector<int>> dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
-    for (auto &dir : dirs) {
-    int xx = x + dir[0], yy = y + dir[1];
-    if (xx < 0 || xx >= rows || yy < 0 || yy >= cols) continue;
-    // do something with (xx,yy)
 }
 ---
 #include <assert.h>
