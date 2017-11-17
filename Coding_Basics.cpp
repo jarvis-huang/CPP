@@ -218,6 +218,7 @@ srand (time(NULL));
 v1 = rand() % 100;        // v1 in the range 0 to 99 (rand() returns an integer [0, RAND_MAX])
 v2 = rand() % 100 + 1;    // v2 in the range 1 to 100
 v3 = rand() % 30 + 1985;  // v3 in the range 1985-2014
+float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); // r between [0, 1]
 ---
 enum Color { red, yellow, green = 20, blue };
 Color mycolor;
